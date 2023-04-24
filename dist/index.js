@@ -1676,8 +1676,9 @@ module.exports = (function (modules, runtime) {
 						// Add one since the content needs to be inserted just after the initial comment
 						startIdx++;
 						content.forEach((line, idx) =>
-							readmeContent.splice(
-								if(idx <= 20){
+							if(idx <= 20){
+								readmeContent.splice(
+
 									startIdx + idx,
 									0,
 									`${idx === 10 ? "\n<details><summary>Show More</summary>\n\n" : ""}${line}  ${
