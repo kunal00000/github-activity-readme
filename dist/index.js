@@ -1585,11 +1585,7 @@ module.exports = (function (modules, runtime) {
 			};
 
 			const timestamper = item =>
-				`\`[${item.created_at.split("T")[0].split("-").slice(1, 3).join("/")} ${item.created_at
-					.split("T")[1]
-					.split(":")
-					.slice(0, 2)
-					.join(":")}]\``;
+				`\`[${item.created_at.split("T")[0].split("-").slice(1, 3).join("/")}]\``;
 
 			Toolkit.run(
 				async tools => {
@@ -1684,7 +1680,7 @@ module.exports = (function (modules, runtime) {
 								startIdx + idx,
 								0,
 								`${idx === 10 ? "\n<details><summary>Show More</summary>\n\n" : ""}${line}  ${
-									idx === content.length - 1 ? "\n\n</details>\n<!--END_SECTION:activity-->" : ""
+									idx === 20 ? "\n\n</details>\n<!--END_SECTION:activity-->" : ""
 								}`
 							)
 						);
