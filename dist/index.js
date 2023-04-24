@@ -1585,7 +1585,7 @@ module.exports = (function (modules, runtime) {
 			};
 
 			const timestamper = item =>
-				`\`[${item.created_at.split("T")[0].split("-").slice(3, 1).join("/")}]\``;
+				`\`[${item.created_at.split("T")[0].split("-").slice(1, 3).join("/")}]\``;
 
 			Toolkit.run(
 				async tools => {
@@ -1677,12 +1677,14 @@ module.exports = (function (modules, runtime) {
 						startIdx++;
 						content.forEach((line, idx) =>
 							readmeContent.splice(
-								startIdx + idx,
-								0,
-								`${idx === 10 ? "\n<details><summary>Show More</summary>\n\n" : ""}${line}  ${
-									idx === 20 ? "\n\n</details>\n<!--END_SECTION:activity-->" : ""
-								}`
-							)
+								if(idx <= 20){
+									startIdx + idx,
+									0,
+									`${idx === 10 ? "\n<details><summary>Show More</summary>\n\n" : ""}${line}  ${
+										idx === 20 ? "\n\n</details>\n<!--END_SECTION:activity-->" : ""
+									}`
+								)
+							}
 						);
 
 						// // Append <!--END_SECTION:activity--> comment
