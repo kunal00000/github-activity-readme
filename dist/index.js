@@ -1675,7 +1675,7 @@ module.exports = (function (modules, runtime) {
 					if (startIdx !== -1) {
 						// Add one since the content needs to be inserted just after the initial comment
 						startIdx++;
-						content.forEach((line, idx) =>
+						content.forEach((line, idx) => {
 							if(idx <= 20){
 								readmeContent.splice(
 
@@ -1686,7 +1686,7 @@ module.exports = (function (modules, runtime) {
 									}`
 								)
 							}
-						);
+						});
 
 						// // Append <!--END_SECTION:activity--> comment
 						// readmeContent.splice(
